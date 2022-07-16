@@ -157,7 +157,6 @@ def hello():
     }
     start_urls = google_link
     def parse(self, response):
-        details.clear
         get_links(response=response)
         yield {'all': all_links}
 #-----------------------------------{innitial Spider(LinksSpider) - End}----------------------------------------/
