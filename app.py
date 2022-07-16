@@ -17,7 +17,6 @@ google_link = []
 
 
 def image(response, p):
-        # pattern = r'(((http:\/\/)|(http:\/\/)|)[-a-zA-Z0-9@:%_\+.~#?&//=]+)\.(jpg|jpeg|gif|png|bmp|tiff|tga|svg)'
     pattern2 = r'((https:\/\/onemg.gumlet.io\/|\/v)[-a-zA-Z0-9@:%_\+.~#?&//=]+)\.(jpg|jpeg)'
     pattern1 = r'((https:\/\/onemg.gumlet.io\/image\/upload\/l_watermark_346,w_480,h_480\/a_ignore,w_480,h_480,c_fit,q_auto,f_auto\/v\/|\/cropped)[-a-zA-Z0-9@:%_\+.~#?&//=]+)\.(jpg|jpeg)'
     script = str(response.css('script::text').extract())
@@ -30,13 +29,11 @@ def image(response, p):
     [ls.append(x) for x in final if x not in ls]
     for i in range(0,len(ls)):
         res.append(ls[i][0])
-    # print("This is res Of 0 : ",res[0])
     return res
 
 
 #-----------------------------------{Image Pattern - End}----------------------------------------/
 def img_pattern2(response):
-    # print("In Second pattern:::::::")
     new_list = []
     list_image_temp = image(response=response,p=2)
     # print(list_image_temp)
@@ -169,9 +166,7 @@ def hello():
   def crawl():
       yield runner.crawl(LinksSpider)
       yield runner.crawl(DetailsSpider)
-      # reactor.stop()
   crawl()
-# reactor.run()
   ln = len(details)
   while ln == 0:
     time.sleep(2)
